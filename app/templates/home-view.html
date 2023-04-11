@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+{% for article in Object_list %}
+    {% if article.title %}
+        <li>
+            <h3><a href="/articles/{{ article.id }}">{{ article.title }}</a></h3>
+            <p>{{ article.content }}</p>
+        </li>
+    {% endif %}
+{% endfor %}
+
+    </ul>
+{% endblock content %}
