@@ -2,19 +2,11 @@ import random
 from django.template.loader import render_to_string
 from articles.models import Article
 from django.http import HttpResponse
+from django.shortcuts import render
+
 
 
 def index(request):
-    # data = json.loads(request.body)
-    # article_id = data['id']
-    # print('article_id: ', article_id)
-    # laoding from databse
-    # print(Article.objects.all())
-    # data = Article.objects.all()
-    # print(type(data))
-    # title = data[0].title
-    # content = data[0].content
-
     random_id = random.randint(1, 2)
     # loading from database(model)
     article_obj = Article.objects.get(id=random_id)
@@ -27,6 +19,28 @@ def index(request):
     }
     HTML_STRING = render_to_string("home-view.html", context=context)
     return HttpResponse(HTML_STRING)
+
+
+# def article_page(request, id, *args, **kwargs): # additional arguments passed with request
+#     print('')
+def article_page(request, id): # additional arguments passed with request
+    articles_obj = None
+    if id is not None:
+        article_obj = Article.objects.get(id=id)
+        context = {
+            "object": article_obj,
+        }
+        return render(request, "articles/detail.html", context=context)
+
+    # data = json.loads(request.body)
+    # article_id = data['id']
+    # print('article_id: ', article_id)
+    # laoding from databse
+    # print(Article.objects.all())
+    # data = Article.objects.all()
+    # print(type(data))
+    # title = data[0].title
+    # content = data[0].content
 
     # data = Article.objects.all().values()
     # # data = Article.objects.filter(id=1)
