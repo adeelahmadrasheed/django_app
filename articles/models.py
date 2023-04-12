@@ -8,9 +8,9 @@ class Article(models.Model):
         User, related_name="Article", on_delete=models.DO_NOTHING, null=True
     )
     title = models.CharField(max_length=30, null=True)
-    content = models.CharField(max_length=150, null=True)
-    author = models.CharField(max_length=30, null=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    content = models.TextField(null=True)
+    # created_at = models.Datenull=TrueTimeField(auto_now_add=True, null=True)
+    # author = models.CharField(max_length=30, null=True)
 
     def __str__(self):
         return self.title
