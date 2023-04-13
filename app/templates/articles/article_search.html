@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if object %}
+        <h3><a href="/articles/{{ object.id }}">{{ object.title }}</a></h3>
+        <p>{{ object.content }}</p>
+    {% endif %}
+{% endblock content %}

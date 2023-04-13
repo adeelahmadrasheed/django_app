@@ -1,19 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block title %}<title>Local Library</title>{% endblock %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Add additional CSS in static file -->
-  {% load static %}
+    {% block title %}<title>Django Blog</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add additional CSS in static file -->
+    {% load static %}
 </head>
 <body>
-  <div class="container-fluid">
+<div class="container-fluid">
+    <div class="row">
+        <h1>Welcome!</h1>
+        <form action="" method="GET" >
+            <input aria-label="serach" type="text" name="q" />
+            <input type="submit" />
+        </form>
+    </div><br>
     <div class="row">
         {% block content %}
         {% endblock %}
     </div>
-  </div>
+
+</div>
 </body>
 </html>
